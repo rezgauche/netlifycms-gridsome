@@ -1,5 +1,12 @@
 <template>
 	<div class="author">
+		
+		<h1>
+		Welcome to
+    		<strong class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
+      		{{$static.metadata.siteName}}
+    		</strong>
+  		</h1>
 
 		<h1 v-if="showTitle" class="author__site-title">
 			{{ $static.metadata.siteName }}
