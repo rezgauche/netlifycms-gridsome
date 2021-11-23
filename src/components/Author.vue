@@ -6,13 +6,13 @@
 		</h1>
 
 		<p class="author__intro">
-			shoplisting
+			rezgauche.be is responsive to a need for an immediate representation of artists, balancing responsibility with decentralised organisation.
 		</p>
 
 		<p class="author__links">
-			<a href="https://www.3xr.space/store/rezgauche.mintbase1.near">virtual gallery</a>
-			<a href="https://www.instagram.com/rezgauche/">instagram</a>
-			<a href="https://reverent-noether-6cff94.netlify.app/about">about</a>
+			<a href="https://www.3xr.space/store/rezgauche.mintbase1.near">gallery</a>
+			<a href="https://www.instagram.com/rezgauche/">insta</a>
+			<a href="https://reverent-noether-6cff94.netlify.app/item-01">01</a>
 		</p>
 
 	</div>
