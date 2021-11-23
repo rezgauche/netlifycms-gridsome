@@ -45,6 +45,7 @@ export default {
 	max-width: 500px;
 	text-align: center;
 	padding-bottom: calc(var(--space) / 2);
+	bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500;
 
 	&__image {
 		border-radius: 100%;
