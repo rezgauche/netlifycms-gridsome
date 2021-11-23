@@ -1,43 +1,53 @@
-<template>
-  <button role="button" aria-label="Toggle dark/light" @click.prevent="toggleTheme" class="toggle-theme">
-      <svg v-if="darkTheme" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-      <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-  </button>
+  <template>
+  <Layout :show-logo="true">
+    <!-- Author intro -->
+    <Author :show-title="true" />
+
+    <!-- List posts -->
+    <div class="posts">
+      <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
+    </div>
+
+  </Layout>
 </template>
 
+<page-query>
+query {
+  posts: allPost(filter: { published: { eq: true }}) {
+    edges {
+      node {
+        id
+        title
+        date (format: "D. MMMM YYYY")
+        description
+        cover_image (width: 770, height: 380, blur: 10)
+        ...on Post {
+        id
+        title
+        path
+        }
+        path
+        tags {
+          id
+          title
+          path
+        }
+      }
+    }
+  }
+}
+</page-query>
+
 <script>
+import Author from '~/components/Author.vue'
+import PostCard from '~/components/PostCard.vue'
 export default {
-  data() {
-    return {
-      darkTheme: false
-    }
+  components: {
+    Author,
+    PostCard
   },
-  methods: {
-    toggleTheme() {
-      this.darkTheme = !this.darkTheme
-      // This is using a script that is added in index.html
-      window.__setPreferredTheme(
-        this.darkTheme ? 'dark' : 'light'
-      )
-    }
-  },
-  mounted() {
-    if (window.__theme == 'dark') this.darkTheme = true
+  metaInfo: {
+    title: 'about'
   }
 }
 </script>
-
-<style lang="scss">
-.toggle-theme {
-  background-color: transparent;
-  border: 0;
-  color: var(--body-color);
-  cursor: pointer;
-  &:hover {
-    opacity: .8
-  }
-  &:focus {
-    outline: none;
-  }
-}
-</style>
