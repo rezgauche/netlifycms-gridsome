@@ -12,6 +12,8 @@
 		<p class="author__links">
 			<a href="https://www.3xr.space/store/rezgauche.mintbase1.near">virtual gallery</a>
 			<a href="https://www.instagram.com/rezgauche/">instagram</a>
+			<a href="https://https://reverent-noether-6cff94.netlify.app/about">about</a>
+			<a href="//about">about</a>
 		</p>
 
 	</div>
