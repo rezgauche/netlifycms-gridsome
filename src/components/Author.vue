@@ -11,6 +11,8 @@
 
 		<p class="author__links">
 			<a href="https://reverent-noether-6cff94.netlify.app/item-01">01</a>
+			<a href="https://reverent-noether-6cff94.netlify.app/tag/about/">about</a>
+			
 		</p>
 
 	</div>
